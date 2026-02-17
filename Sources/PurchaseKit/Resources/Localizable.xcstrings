@@ -1,271 +1,856 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "purchasekit_billing_suffix_format": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "/ %@" } },
-        "de": { "stringUnit": { "state": "translated", "value": "/ %@" } }
+  "sourceLanguage" : "en",
+  "strings" : {
+    "purchasekit_billing_suffix_format" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ %@"
+          }
+        }
       }
     },
-    "purchasekit_period_day": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Day" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Tag" } }
+    "purchasekit_period_day" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Day"
+          }
+        }
       }
     },
-    "purchasekit_period_generic": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Period" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Zeitraum" } }
+    "purchasekit_period_generic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitraum"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Period"
+          }
+        }
       }
     },
-    "purchasekit_period_month": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Month" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Monat" } }
+    "purchasekit_period_month" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Month"
+          }
+        }
       }
     },
-    "purchasekit_period_value_format": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "%d %@" } },
-        "de": { "stringUnit": { "state": "translated", "value": "%d %@" } }
+    "purchasekit_period_value_format" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d %@"
+          }
+        }
       }
     },
-    "purchasekit_period_week": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Week" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Woche" } }
+    "purchasekit_period_week" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Woche"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Week"
+          }
+        }
       }
     },
-    "purchasekit_period_year": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Year" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Jahr" } }
+    "purchasekit_period_year" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jahr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Year"
+          }
+        }
       }
     },
-    "purchasekit_trial_free_format": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "%d %@ free" } },
-        "de": { "stringUnit": { "state": "translated", "value": "%d %@ kostenlos" } }
+    "purchasekit_trial_free_format" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d %@ kostenlos"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d %@ free"
+          }
+        }
       }
     },
-
-    "purchasekit_unit_day_singular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "day" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Tag" } }
+    "purchasekit_unit_day_plural" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tage"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "days"
+          }
+        }
       }
     },
-    "purchasekit_unit_day_plural": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "days" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Tage" } }
+    "purchasekit_unit_day_singular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "day"
+          }
+        }
       }
     },
-    "purchasekit_unit_week_singular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "week" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Woche" } }
+    "purchasekit_unit_generic_plural" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeiträume"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "periods"
+          }
+        }
       }
     },
-    "purchasekit_unit_week_plural": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "weeks" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Wochen" } }
+    "purchasekit_unit_generic_singular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitraum"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "period"
+          }
+        }
       }
     },
-    "purchasekit_unit_month_singular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "month" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Monat" } }
+    "purchasekit_unit_month_plural" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monate"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "months"
+          }
+        }
       }
     },
-    "purchasekit_unit_month_plural": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "months" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Monate" } }
+    "purchasekit_unit_month_singular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "month"
+          }
+        }
       }
     },
-    "purchasekit_unit_year_singular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "year" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Jahr" } }
+    "purchasekit_unit_week_plural" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wochen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "weeks"
+          }
+        }
       }
     },
-    "purchasekit_unit_year_plural": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "years" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Jahre" } }
+    "purchasekit_unit_week_singular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Woche"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "week"
+          }
+        }
       }
     },
-    "purchasekit_unit_generic_singular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "period" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Zeitraum" } }
+    "purchasekit_unit_year_plural" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jahre"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "years"
+          }
+        }
       }
     },
-    "purchasekit_unit_generic_plural": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "periods" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Zeiträume" } }
+    "purchasekit_unit_year_singular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jahr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "year"
+          }
+        }
       }
     },
-
-    "purchasekit.badge.best_value": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Best Value" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Bestes Angebot" } }
+    "purchasekit.badge.best_value" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestes Angebot"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best Value"
+          }
+        }
       }
     },
-    "purchasekit.badge.most_popular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Most Popular" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Am beliebtesten" } }
+    "purchasekit.badge.most_popular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Am beliebtesten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most Popular"
+          }
+        }
       }
     },
-    "purchasekit.badge.save_percent": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Save %d%%" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Spare %d%%" } }
+    "purchasekit.badge.save_percent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spare %d%%"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save %d%%"
+          }
+        }
       }
     },
-
-    "purchasekit.network_status.wifi": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "WiFi" } },
-        "de": { "stringUnit": { "state": "translated", "value": "WLAN" } }
+    "purchasekit.button.active" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktiv"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        }
       }
     },
-    "purchasekit.network_status.cellular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Cellular" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Mobilfunk" } }
+    "purchasekit.button.pending" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wartet auf Freigabe…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pending approval…"
+          }
+        }
       }
     },
-    "purchasekit.network_status.offline": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Offline" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Offline" } }
+    "purchasekit.button.processing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird verarbeitet…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Processing…"
+          }
+        }
       }
     },
-    "purchasekit.network_status.unknown": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Unknown" } },
-        "de": { "stringUnit": { "state": "translated", "value": "Unbekannt" } }
+    "purchasekit.button.purchased" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gekauft"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchased"
+          }
+        }
       }
     },
-
-    "purchasekit.network.monitoring_setup_failed": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Network monitoring could not be started." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Die Netzwerküberwachung konnte nicht gestartet werden." } }
+    "purchasekit.button.renew" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneuern"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renew"
+          }
+        }
       }
     },
-    "purchasekit.network.monitoring_interrupted": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Network monitoring was interrupted." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Die Netzwerküberwachung wurde unerwartet unterbrochen." } }
+    "purchasekit.button.revoked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zugriff entzogen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access revoked"
+          }
+        }
       }
     },
-
-    "purchasekit.promocode.not_available": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Offer code redemption is not available on this device." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Die Code-Eingabe ist auf diesem Gerät nicht verfügbar." } }
+    "purchasekit.button.subscribe" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abonnieren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribe"
+          }
+        }
       }
     },
-    "purchasekit.promocode.user_cancelled": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "You cancelled the offer code redemption." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Du hast die Code-Eingabe abgebrochen." } }
+    "purchasekit.network_status.cellular" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mobilfunk"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cellular"
+          }
+        }
       }
     },
-    "purchasekit.promocode.system_error": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "A system error occurred while opening the offer code sheet." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Beim Öffnen der Code-Eingabe ist ein Systemfehler aufgetreten." } }
+    "purchasekit.network_status.offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
+          }
+        }
       }
     },
-
-    "purchasekit.purchase_error.user_cancelled": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Purchase cancelled." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Kauf abgebrochen." } }
+    "purchasekit.network_status.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown"
+          }
+        }
       }
     },
-    "purchasekit.purchase_error.pending": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Purchase pending approval." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Kauf ausstehend (Genehmigung erforderlich)." } }
+    "purchasekit.network_status.wifi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WLAN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WiFi"
+          }
+        }
       }
     },
-    "purchasekit.purchase_error.network": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "No internet connection. Please try again." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Keine Internetverbindung. Bitte versuche es erneut." } }
+    "purchasekit.network.monitoring_interrupted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Netzwerküberwachung wurde unerwartet unterbrochen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network monitoring was interrupted."
+          }
+        }
       }
     },
-    "purchasekit.purchase_error.system": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Something went wrong. Please try again later." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Es ist ein Fehler aufgetreten. Bitte versuche es später erneut." } }
+    "purchasekit.network.monitoring_setup_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Netzwerküberwachung konnte nicht gestartet werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network monitoring could not be started."
+          }
+        }
       }
     },
-    "purchasekit.purchase_error.product_unavailable": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "This product is currently unavailable." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Dieses Produkt ist derzeit nicht verfügbar." } }
+    "purchasekit.promocode.not_available" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Code-Eingabe ist auf diesem Gerät nicht verfügbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offer code redemption is not available on this device."
+          }
+        }
       }
     },
-    "purchasekit.purchase_error.not_allowed": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Purchases are not allowed on this device or account." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Käufe sind auf diesem Gerät oder Account nicht erlaubt." } }
+    "purchasekit.promocode.system_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Öffnen der Code-Eingabe ist ein Systemfehler aufgetreten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A system error occurred while opening the offer code sheet."
+          }
+        }
       }
     },
-    "purchasekit.purchase_error.store_problem": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "The App Store is temporarily unavailable. Please try again later." } },
-        "de": { "stringUnit": { "state": "translated", "value": "Der App Store ist momentan nicht verfügbar. Bitte versuche es später erneut." } }
+    "purchasekit.promocode.user_cancelled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du hast die Code-Eingabe abgebrochen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You cancelled the offer code redemption."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.network" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Internetverbindung. Bitte versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No internet connection. Please try again."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.not_allowed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käufe sind auf diesem Gerät oder Account nicht erlaubt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchases are not allowed on this device or account."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.pending" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kauf ausstehend (Genehmigung erforderlich)."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase pending approval."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.product_unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Produkt ist derzeit nicht verfügbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This product is currently unavailable."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.store_problem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der App Store ist momentan nicht verfügbar. Bitte versuche es später erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The App Store is temporarily unavailable. Please try again later."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.system" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein Fehler aufgetreten. Bitte versuche es später erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong. Please try again later."
+          }
+        }
+      }
+    },
+    "purchasekit.purchase_error.user_cancelled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kauf abgebrochen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase cancelled."
+          }
+        }
+      }
+    },
+    "purchasekit.toolbar.info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informationen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        }
+      }
+    },
+    "purchasekit.toolbar.manage_subscriptions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abo verwalten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manage Subscription"
+          }
+        }
+      }
+    },
+    "purchasekit.toolbar.menu" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        }
+      }
+    },
+    "purchasekit.toolbar.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutz"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "purchasekit.toolbar.restore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käufe wiederherstellen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore Purchases"
+          }
+        }
+      }
+    },
+    "purchasekit.toolbar.terms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzungsbedingungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Service"
+          }
+        }
       }
     }
   },
-  "version": "1.1"
+  "version" : "1.1"
 }

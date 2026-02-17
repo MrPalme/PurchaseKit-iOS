@@ -1,7 +1,7 @@
 # PurchaseKit
 
 PurchaseKit is an **app-agnostic StoreKit 2 backend** packaged as a Swift Package.  
-It provides a reusable purchase flow (load products, purchase, restore, entitlement snapshot) and a small set of **SwiftUI-ready building blocks** (e.g. restore + legal buttons) driven by **protocols + callbacks** so the host app stays in control of UI and copy.
+It provides a reusable purchase flow (load products, purchase, restore, entitlement snapshot) plus **SwiftUI-ready building blocks** (e.g. purchase button + info/legal menu) while keeping the **host app in control** via protocols and callbacks.
 
 Licensed under **Apache-2.0**.
 
@@ -9,27 +9,28 @@ Licensed under **Apache-2.0**.
 
 ## Features
 
-- **StoreKit 2 product loading + caching**
-  - Load products for your `PurchaseOption`s
-  - Cache policy (`useCache` / `reloadIgnoringCache`)
+- **StoreKit 2 product loading**
+  - Loads products for your app-defined `PurchasableOption`s
+  - Publishes `availableProducts` for paywalls/settings UI
 - **Purchasing**
-  - Initiate purchases with StoreKit 2
-  - Handles verification + finishing transactions
-  - Pending / cancelled / failed mapping
+  - StoreKit 2 purchase flow
+  - Verification + finishing transactions
+  - Normalized `PurchaseFlowState` (`idle`, `purchasing`, `pending`, `failed`)
 - **Restore / Sync**
   - `AppStore.sync()` restore flow
-  - Rebuilds entitlement snapshot from `Transaction.currentEntitlements`
+  - Rebuilds entitlements from `Transaction.currentEntitlements`
 - **Entitlements**
   - Normalized `EntitlementState` (`inactive`, `nonConsumable`, `subscriptionActive`, `subscriptionExpired`, `revoked`)
-  - `isActive` for feature gating
-- **Option model**
-  - Host app defines purchasables via `PurchaseOption`
-  - Library uses type erasure (`AnyPurchaseOption`) for stable callbacks
+  - Convenience checks for gating (`isActive`, `isEntitled(...)`)
+- **Offerings & Features (optional)**
+  - Group options via `offeringId` (paywall sections)
+  - Host-defined `Feature` + `PurchaseOffering` to model “what gets unlocked”
 - **Optional network awareness**
-  - Integrate a `NetworkService` if you want to block network-dependent actions
-- **SwiftUI-friendly**
-  - `ObservableObject` state (`@Published`) for paywalls / settings screens
-  - Delegate callbacks for UIKit or legacy flows
+  - Inject a `NetworkService` to expose `canAttemptNetworkOperations`
+- **SwiftUI building blocks**
+  - `PurchaseKitPurchaseButton` (localized defaults, customizable providers)
+  - `PurchaseKitInfoToolbar` (terms/privacy/info/restore/manage)
+  - `PurchaseKitSafariView` for legal links
 
 ---
 
@@ -41,47 +42,20 @@ Licensed under **Apache-2.0**.
 
 ---
 
-## Installation (Swift Package Manager)
+## Installation
 
-Add PurchaseKit via SPM:
-
-- Xcode → **File → Add Packages…**
-- Select your repository URL
-- Add the `PurchaseKit` product to your target
+Xcode → **File → Add Packages…** → paste your repository URL → add the `PurchaseKit` product.
 
 ---
 
-## Core Concepts
+## Quick Setup (Recommended)
 
-### PurchaseOption
-Your app defines purchasable items by conforming to:
-
-- `id`: stable app identifier (analytics/routing)
-- `productId`: StoreKit product id (App Store Connect)
-- `purchaseType`: category (subscription vs non-consumable)
-- `title`, `subtitle`, `badge`, `offeringId`, `sortOrder`: UI metadata
-
-### EntitlementState
-PurchaseKit normalizes StoreKit transactions into `EntitlementState` so your app can gate features consistently.
-
-### PurchaseKitManager
-The main coordinator:
-- configure options
-- load products
-- purchase options
-- restore purchases (typed options)
-- publish entitlement state
-
----
-
-## Quick Start
-
-### 1) Define your options
+### 1) Define your purchasable options
 
 ```swift
 import PurchaseKit
 
-enum AppPurchaseOption: String, CaseIterable, PurchaseOption {
+enum AppPurchaseOption: String, CaseIterable, PurchasableOption {
     case proMonthly
     case proYearly
     case lifetime
@@ -91,8 +65,8 @@ enum AppPurchaseOption: String, CaseIterable, PurchaseOption {
     var productId: String {
         switch self {
         case .proMonthly: return "com.yourapp.pro.monthly"
-        case .proYearly: return "com.yourapp.pro.yearly"
-        case .lifetime: return "com.yourapp.lifetime"
+        case .proYearly:  return "com.yourapp.pro.yearly"
+        case .lifetime:   return "com.yourapp.lifetime"
         }
     }
 
@@ -103,74 +77,89 @@ enum AppPurchaseOption: String, CaseIterable, PurchaseOption {
         }
     }
 
+    // Optional UI metadata
     var title: String { rawValue }
-    
     var subtitle: String? { nil }
-    
+
     var sortOrder: Int {
         switch self {
         case .proMonthly: return 0
         case .proYearly: return 1
         case .lifetime: return 2
+        }
     }
-    
+
+    /// Groups options into paywall sections (optional).
     var offeringId: String? { "pro" }
-    
+
+    /// Optional badge shown by host UI (or your own views).
     var badge: TierBadge? { nil }
 }
 ```
 
-### 2) Create and configure the manager
+### 2) Install PurchaseKit into your SwiftUI app
+
+This attaches one PurchaseKitManager as an EnvironmentObject, calls configure(...) once, and loads products once.
 
 ```swift
+import SwiftUI
 import PurchaseKit
 
-@MainActor
-final class PaywallViewModel: ObservableObject {
-    let manager = PurchaseKitManager()
-
-    init() {
-        manager.configure(options: AppPurchaseOption.allCases)
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            RootView()
+                .installPurchaseKit(with: AppPurchaseOption.allCases)
+        }
     }
 }
 ```
 
-### 3) Load products
+### 3) Use it anywhere via @EnvironmentObject
 
 ```swift
-Task {
-    await manager.loadProducts()
+import SwiftUI
+import PurchaseKit
+
+struct RootView: View {
+    @EnvironmentObject private var purchases: PurchaseKitManager
+
+    var body: some View {
+        List {
+            Text("Products: \(purchases.availableProducts.count)")
+            Text("Pro active: \(purchases.hasAnyActiveSubscription.description)")
+        }
+    }
 }
 ```
 
-### 4) Purchase
+## Optional: Install with NetworkService
+
+PurchaseKit does not require reachability — StoreKit is the source of truth and will error when offline.
+If you want fast-fail UX + canAttemptNetworkOperations, inject a manager configured with NetworkService.
 
 ```swift
-Task {
-    try await manager.purchase(AppPurchaseOption.proYearly)
+import SwiftUI
+import PurchaseKit
+
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            RootView()
+                .installPurchaseKit(
+                    with: AppPurchaseOption.allCases,
+                    networkService: NetworkService()
+                )
+        }
+    }
 }
-```
-
-### 5) Restore
-
-Restore requires typed options (because StoreKit entitlements are mapped via your PurchaseOption set).
-
-```swift
-Task {
-    await manager.restorePurchases(options: AppPurchaseOption.allCases)
-}
-```
-
-### 6) Gate features
-
-```swift
-let option = AnyPurchaseOption(AppPurchaseOption.proYearly)
-let isPro = manager.isEntitled(option)
 ```
 
 ## Offerings (Grouping Paywall Options)
 
-`PurchaseOption.offeringId` lets you group multiple options into a single offering/plan.
+PurchasableOption.offeringId lets you group options into paywall sections.
 Typical use cases:
 - group **monthly + yearly** under one plan (e.g. `"pro"`)
 - separate **consumer vs team** offerings
@@ -182,7 +171,6 @@ Example:
 extension Array where Element == AnyPurchaseOption {
     func groupedByOffering() -> [(offeringId: String, items: [AnyPurchaseOption])] {
         let grouped = Dictionary(grouping: self) { $0.offeringId ?? "default" }
-        // stable order: sort groups by offeringId, items by sortOrder
         return grouped
             .map { (key: $0.key, value: $0.value.sorted { $0.sortOrder < $1.sortOrder }) }
             .sorted { $0.key < $1.key }
@@ -194,15 +182,24 @@ extension Array where Element == AnyPurchaseOption {
 Usage in SwiftUI:
 
 ```swift
-let offerings = manager.entitlements.keys
-    .map { $0 } // AnyPurchaseOption
-    .groupedByOffering()
+import SwiftUI
+import PurchaseKit
 
-ForEach(offerings, id: \.offeringId) { offering in
-    Section(offering.offeringId) {
-        ForEach(offering.items, id: \.self) { option in
-            let state = manager.entitlementState(for: option)
-            Text("\(option.title) – active: \(state.isActive.description)")
+struct OfferingsList: View {
+    @EnvironmentObject private var purchases: PurchaseKitManager
+
+    var body: some View {
+        let offerings = purchases.entitlements.keys.map { $0 }.groupedByOffering()
+
+        List {
+            ForEach(offerings, id: \.offeringId) { offering in
+                Section(offering.offeringId) {
+                    ForEach(offering.items, id: \.self) { option in
+                        let state = purchases.entitlementState(for: option)
+                        Text("\(option.title) – active: \(state.isActive.description)")
+                    }
+                }
+            }
         }
     }
 }
@@ -210,17 +207,14 @@ ForEach(offerings, id: \.offeringId) { offering in
 
 Tip: Use badge (e.g. “Best Value”) + sortOrder to drive paywall layout consistently.
 
-## Offerings (Grouping Paywall Options)
+## Optional: Feature Gating
 
-PurchaseKit can be used to gate app functionality behind purchases by defining features in the host app and checking them against the current entitlements.
-
-### 1) Define your features
+If you want to describe what a tier unlocks, define features in the host app:
 
 ```swift
 import PurchaseKit
 
 enum AppPurchaseFeature: CaseIterable, Feature {
-
     case cloudSync
     case photoCredits
 
@@ -239,42 +233,74 @@ enum AppPurchaseFeature: CaseIterable, Feature {
         case .photoCredits: return "subscription_feature_shooting_credits_description".localized
         }
     }
-}
-```
+}```
 
-### 2) Map features to purchase offering
+And (optionally) map them to an offering:
 
 ```swift
 import PurchaseKit
 
 enum AppPurchaseOffering: CaseIterable, PurchaseOffering {
-    
     case fullversion
-    
-    var id: String {
-        switch self {
-        case .fullversion: return "fullversion"
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .fullversion: return "Full Version"
-        }
-    }
-    
-    var description: String? {
-        switch self {
-        case .fullversion: return "All features available" 
-        }
-    }
-    
+
+    var id: String { "fullversion" }
+    var title: String { "Full Version" }
+    var description: String? { "All features available" }
     var features: [any Feature] { AppPurchaseFeature.allCases }
-    
-    var sortOrder: Int {
-        switch self {
-        case .fullversion: return 1
+    var sortOrder: Int { 0 }
+}}```
+
+## UI Building Blocks
+
+###PurchaseKitPurchaseButton
+
+A package-ready CTA button with localized defaults and customization hooks.
+
+```swift
+import SwiftUI
+import PurchaseKit
+
+struct PaywallCTA: View {
+    @EnvironmentObject private var purchases: PurchaseKitManager
+    let option: AnyPurchaseOption
+
+    var body: some View {
+        PurchaseKitPurchaseButton(
+            entitlement: purchases.entitlementState(for: option),
+            flowState: purchases.flowState
+        ) {
+            Task { try? await purchases.purchase(option) }
         }
+    }
+}
+```
+
+###PurchaseKitInfoToolbar
+
+A small toolbar menu for legal links and secondary actions.
+
+```swift
+import SwiftUI
+import PurchaseKit
+
+struct PaywallView: View {
+    @EnvironmentObject private var purchases: PurchaseKitManager
+
+    var body: some View {
+        Text("Paywall")
+            .toolbar {
+                PurchaseKitInfoToolbar(
+                    termsURL: URL(string: "https://example.com/terms"),
+                    privacyURL: URL(string: "https://example.com/privacy"),
+                    infoView: AnyView(Text("Some info / disclaimer")),
+                    onRestore: {
+                        Task { await purchases.restorePurchases(options: AppPurchaseOption.allCases) }
+                    },
+                    onManageSubscriptions: {
+                        Task { await PurchaseKitManager.openManageSubscription() }
+                    }
+                )
+            }
     }
 }
 ```
@@ -397,9 +423,9 @@ struct PaywallRow: View {
     }
 }
 ```
+
 Note: TierBadge.defaultText is a fallback. For full localization you can map badges
 to Localizable keys in the host app and render your own text instead.
-
 
 
 ### Delegate (optional)
@@ -449,3 +475,13 @@ manager.configure(options: AppPurchaseOption.allCases)
 if manager.canAttemptNetworkOperations {
     await manager.loadProducts()
 }
+```
+
+## Notes
+•    PurchaseKit is not a singleton — you control scope/lifetime (recommended: install once at app root).
+•    Restore/refresh require typed options (your PurchasableOption list) so entitlements can be mapped safely.
+•    Localization in package UI uses Bundle.module.
+
+## Support
+
+If you find PurchaseKit useful, a ⭐️ on GitHub is appreciated.
