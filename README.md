@@ -210,6 +210,74 @@ ForEach(offerings, id: \.offeringId) { offering in
 
 Tip: Use badge (e.g. “Best Value”) + sortOrder to drive paywall layout consistently.
 
+## Offerings (Grouping Paywall Options)
+
+PurchaseKit can be used to gate app functionality behind purchases by defining features in the host app and checking them against the current entitlements.
+
+### 1) Define your features
+
+```swift
+import PurchaseKit
+
+enum AppPurchaseFeature: CaseIterable, Feature {
+
+    case cloudSync
+    case photoCredits
+
+    var id: String { "\(self)" }
+
+    var localizedName: String {
+        switch self {
+        case .cloudSync: return "subscription_feature_cloud_sync".localized
+        case .photoCredits: return "subscription_feature_shooting_credits".localized
+        }
+    }
+
+    var localizeDescription: String {
+        switch self {
+        case .cloudSync: return "subscription_feature_cloud_sync_description".localized
+        case .photoCredits: return "subscription_feature_shooting_credits_description".localized
+        }
+    }
+}
+```
+
+### 2) Map features to purchase offering
+
+```swift
+import PurchaseKit
+
+enum AppPurchaseOffering: CaseIterable, PurchaseOffering {
+    
+    case fullversion
+    
+    var id: String {
+        switch self {
+        case .fullversion: return "fullversion"
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .fullversion: return "Full Version"
+        }
+    }
+    
+    var description: String? {
+        switch self {
+        case .fullversion: return "All features available" 
+        }
+    }
+    
+    var features: [any Feature] { AppPurchaseFeature.allCases }
+    
+    var sortOrder: Int {
+        switch self {
+        case .fullversion: return 1
+        }
+    }
+}
+```
 
 ## Best Value / Savings Badges
 
