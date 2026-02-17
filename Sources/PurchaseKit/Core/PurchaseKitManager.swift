@@ -382,7 +382,7 @@ public final class PurchaseKitManager: ObservableObject, PurchaseKitManagerProto
 
 // MARK: - SubscriptionManagement
 
-extension PurchaseKitManager {
+public extension PurchaseKitManager {
     
     /// Opens the system subscription management UI for the current app.
     ///
