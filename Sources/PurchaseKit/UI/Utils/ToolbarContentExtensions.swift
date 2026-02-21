@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - iOS 26 Navigation Transition Compatibility
 
-extension ToolbarContent {
+public extension ToolbarContent {
     
     /// Conditionally applies a matched transition source (iOS 26+) and does nothing on older OS versions.
     ///
